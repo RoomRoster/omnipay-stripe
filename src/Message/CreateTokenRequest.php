@@ -100,8 +100,31 @@ class CreateTokenRequest extends AbstractRequest
             }
 
             $data['card'] = $card_data;
+        } elseif ($this->getParameter('bankAccount')) {
+            /** @var \Omnipay\Stripe\BankAccount $bankAccount */
+            $bankAccount = $this->getParameter('bankAccount');
+            $bankAccount->validate();
+
+            $bank_data = array(
+                'country' => $bankAccount->getBillingCountry(),
+                'account_number' => $bankAccount->getAccountNumber(),
+            );
+
+            if ($bankAccount->getRoutingNumber()) {
+                $bank_data['routing_number'] = $bankAccount->getRoutingNumber();
+            }
+
+            if ($bankAccount->getAccountType()) {
+                $bank_data['account_type'] = $bankAccount->getAccountType();
+            }
+
+            if ($bankAccount->getBillingName()) {
+                $bank_data['account_holder_name'] = $bankAccount->getBillingName();
+            }
+
+            $data['bank_account'] = $bank_data;
         } else {
-            throw new InvalidRequestException("You must pass either the card or the customer");
+            throw new InvalidRequestException("You must pass either the bank account, card, or the customer");
         }
 
         return $data;
