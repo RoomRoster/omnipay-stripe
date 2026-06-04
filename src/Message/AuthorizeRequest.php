@@ -341,10 +341,12 @@ class AuthorizeRequest extends AbstractRequest
             }
         } elseif ($this->getCard()) {
             $data['source'] = $this->getCardData();
+        } elseif ($this->getBankAccount()) {
+            $data['source'] = $this->getBankData();
         } elseif ($this->getCustomerReference()) {
             $data['customer'] = $this->getCustomerReference();
         } else {
-            // one of cardReference, token, or card is required
+            // one of cardReference, token, bankAccount, or card is required
             $this->validate('source');
         }
 
