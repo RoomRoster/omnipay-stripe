@@ -245,8 +245,8 @@ class BankAccount
      */
     public function setTitle($value)
     {
-        $this->setBillingTitle($value);
-        $this->setShippingTitle($value);
+        $this->setBillingTitle($value)
+            ->setShippingTitle($value);
 
         return $this;
     }
@@ -279,8 +279,8 @@ class BankAccount
      */
     public function setFirstName($value)
     {
-        $this->setBillingFirstName($value);
-        $this->setShippingFirstName($value);
+        $this->setBillingFirstName($value)
+            ->setShippingFirstName($value);
 
         return $this;
     }
@@ -303,8 +303,8 @@ class BankAccount
      */
     public function setLastName($value)
     {
-        $this->setBillingLastName($value);
-        $this->setShippingLastName($value);
+        $this->setBillingLastName($value)
+            ->setShippingLastName($value);
 
         return $this;
     }
@@ -327,8 +327,8 @@ class BankAccount
      */
     public function setName($value)
     {
-        $this->setBillingName($value);
-        $this->setShippingName($value);
+        $this->setBillingName($value)
+            ->setShippingName($value);
 
         return $this;
     }
@@ -526,8 +526,8 @@ class BankAccount
     {
         $names = $this->listFirstLastName($value);
 
-        $this->setBillingFirstName($names[0]);
-        $this->setBillingLastName($names[1]);
+        $this->setBillingFirstName($names[0])
+            ->setBillingLastName($names[1]);
 
         return $this;
     }
@@ -825,8 +825,8 @@ class BankAccount
     {
         $names = $this->listFirstLastName($value);
 
-        $this->setShippingFirstName($names[0]);
-        $this->setShippingLastName($names[1]);
+        $this->setShippingFirstName($names[0])
+            ->setShippingLastName($names[1]);
 
         return $this;
     }
@@ -1101,8 +1101,8 @@ class BankAccount
      */
     public function setAddress1($value)
     {
-        $this->setParameter('billingAddress1', $value);
-        $this->setParameter('shippingAddress1', $value);
+        $this->setParameter('billingAddress1', $value)
+            ->setParameter('shippingAddress1', $value);
 
         return $this;
     }
@@ -1125,8 +1125,8 @@ class BankAccount
      */
     public function setAddress2($value)
     {
-        $this->setParameter('billingAddress2', $value);
-        $this->setParameter('shippingAddress2', $value);
+        $this->setParameter('billingAddress2', $value)
+            ->setParameter('shippingAddress2', $value);
 
         return $this;
     }
@@ -1149,8 +1149,8 @@ class BankAccount
      */
     public function setCity($value)
     {
-        $this->setParameter('billingCity', $value);
-        $this->setParameter('shippingCity', $value);
+        $this->setParameter('billingCity', $value)
+            ->setParameter('shippingCity', $value);
 
         return $this;
     }
@@ -1173,8 +1173,8 @@ class BankAccount
      */
     public function setPostcode($value)
     {
-        $this->setParameter('billingPostcode', $value);
-        $this->setParameter('shippingPostcode', $value);
+        $this->setParameter('billingPostcode', $value)
+            ->setParameter('shippingPostcode', $value);
 
         return $this;
     }
@@ -1197,8 +1197,8 @@ class BankAccount
      */
     public function setState($value)
     {
-        $this->setParameter('billingState', $value);
-        $this->setParameter('shippingState', $value);
+        $this->setParameter('billingState', $value)
+            ->setParameter('shippingState', $value);
 
         return $this;
     }
@@ -1221,8 +1221,8 @@ class BankAccount
      */
     public function setCountry($value)
     {
-        $this->setParameter('billingCountry', $value);
-        $this->setParameter('shippingCountry', $value);
+        $this->setParameter('billingCountry', $value)
+            ->setParameter('shippingCountry', $value);
 
         return $this;
     }
@@ -1245,8 +1245,8 @@ class BankAccount
      */
     public function setPhone($value)
     {
-        $this->setParameter('billingPhone', $value);
-        $this->setParameter('shippingPhone', $value);
+        $this->setParameter('billingPhone', $value)
+            ->setParameter('shippingPhone', $value);
 
         return $this;
     }
@@ -1269,8 +1269,8 @@ class BankAccount
      */
     public function setPhoneExtension($value)
     {
-        $this->setParameter('billingPhoneExtension', $value);
-        $this->setParameter('shippingPhoneExtension', $value);
+        $this->setParameter('billingPhoneExtension', $value)
+            ->setParameter('shippingPhoneExtension', $value);
 
         return $this;
     }
@@ -1293,8 +1293,8 @@ class BankAccount
      */
     public function setFax($value)
     {
-        $this->setParameter('billingFax', $value);
-        $this->setParameter('shippingFax', $value);
+        $this->setParameter('billingFax', $value)
+            ->setParameter('shippingFax', $value);
 
         return $this;
     }
@@ -1317,8 +1317,8 @@ class BankAccount
      */
     public function setCompany($value)
     {
-        $this->setParameter('billingCompany', $value);
-        $this->setParameter('shippingCompany', $value);
+        $this->setParameter('billingCompany', $value)
+            ->setParameter('shippingCompany', $value);
 
         return $this;
     }
