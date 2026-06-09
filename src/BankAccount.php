@@ -124,16 +124,16 @@ class BankAccount
     public function getSupportedAccountTypes()
     {
         if (in_array($this->getBillingCountry(), ['Japan', 'JP'], true)) {
-            return array(
+            return [
                 self::ACCOUNT_TYPE_FUTSU,
                 self::ACCOUNT_TYPE_TOZA,
-            );
+            ];
         }
 
-        return array(
+        return [
             self::ACCOUNT_TYPE_CHECKING,
             self::ACCOUNT_TYPE_SAVINGS,
-        );
+        ];
     }
 
     /**
@@ -180,10 +180,10 @@ class BankAccount
      */
     public function validate()
     {
-        $requiredParameters = array(
+        $requiredParameters = [
             'accountNumber' => 'bank account number',
             'billingCountry' => 'bank account country',
-        );
+        ];
 
         foreach ($requiredParameters as $key => $val) {
             if (!$this->getParameter($key)) {
@@ -510,10 +510,10 @@ class BankAccount
     {
         $names = explode(' ', $fullName, 2);
 
-        return array(
+        return [
             $names[0],
             isset($names[1]) ? $names[1] : null
-        );
+        ];
     }
 
     /**

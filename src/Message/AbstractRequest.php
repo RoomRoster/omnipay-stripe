@@ -420,8 +420,9 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         $bankAccount = $this->getBankAccount();
         $bankAccount->validate();
 
-        $data = array();
-        $data['object'] = 'bank_account';
+        $data = [
+            'object' => 'bank_account',
+        ];
 
         $accountType = $bankAccount->getAccountType();
         $routingNumber = $bankAccount->getRoutingNumber();

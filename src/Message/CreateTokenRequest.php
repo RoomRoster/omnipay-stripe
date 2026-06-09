@@ -105,24 +105,24 @@ class CreateTokenRequest extends AbstractRequest
             $bankAccount = $this->getParameter('bankAccount');
             $bankAccount->validate();
 
-            $bank_data = array(
+            $bankData = [
                 'country' => $bankAccount->getBillingCountry(),
                 'account_number' => $bankAccount->getAccountNumber(),
-            );
+            ];
 
             if ($bankAccount->getRoutingNumber()) {
-                $bank_data['routing_number'] = $bankAccount->getRoutingNumber();
+                $bankData['routing_number'] = $bankAccount->getRoutingNumber();
             }
 
             if ($bankAccount->getAccountType()) {
-                $bank_data['account_type'] = $bankAccount->getAccountType();
+                $bankData['account_type'] = $bankAccount->getAccountType();
             }
 
             if ($bankAccount->getBillingName()) {
-                $bank_data['account_holder_name'] = $bankAccount->getBillingName();
+                $bankData['account_holder_name'] = $bankAccount->getBillingName();
             }
 
-            $data['bank_account'] = $bank_data;
+            $data['bank_account'] = $bankData;
         } else {
             throw new InvalidRequestException("You must pass either the bank account, card, or the customer");
         }
