@@ -105,6 +105,27 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         return $this->setParameter('customerReference', $value);
     }
 
+    /**
+     * Gets the bank account.
+     *
+     * @return \Omnipay\Stripe\BankAccount
+     */
+    public function getBankAccount()
+    {
+        return $this->getParameter('bankAccount');
+    }
+
+    /**
+     * Sets the bank account.
+     *
+     * @param \Omnipay\Stripe\BankAccount $value
+     * @return AbstractRequest provides a fluent interface.
+     */
+    public function setBankAccount($value)
+    {
+        return $this->setParameter('bankAccount', $value);
+    }
+
     public function getMetadata()
     {
         return $this->getParameter('metadata');
@@ -384,6 +405,44 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         $data['address_state'] = $card->getState();
         $data['address_country'] = $card->getCountry();
         $data['email'] = $card->getEmail();
+
+        return $data;
+    }
+
+    /**
+     * Gets the bank data.
+     *
+     * @return array
+     * @throws \Omnipay\Stripe\Exception\InvalidBankAccountException Missing or invalid required bank account parameters.
+     */
+    protected function getBankData()
+    {
+        $bankAccount = $this->getBankAccount();
+        $bankAccount->validate();
+
+        $data = [
+            'object' => 'bank_account',
+        ];
+
+        $accountType = $bankAccount->getAccountType();
+        $routingNumber = $bankAccount->getRoutingNumber();
+        $accountHolderName = $bankAccount->getName();
+
+        if (!empty($accountType)) {
+            $data['account_type'] = $accountType;
+        }
+
+        if (!empty($routingNumber)) {
+            $data['routing_number'] = $routingNumber;
+        }
+
+        if (!empty($accountHolderName)) {
+            $data['account_holder_name'] = $accountHolderName;
+        }
+
+        $data['account_number'] = $bankAccount->getAccountNumber();
+        $data['country'] = $bankAccount->getCountry();
+        $data['currency'] = $this->getCurrency();
 
         return $data;
     }
