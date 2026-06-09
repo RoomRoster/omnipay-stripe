@@ -9,9 +9,7 @@ namespace Omnipay\Stripe;
 use DateTime;
 use DateTimeZone;
 use Omnipay\Stripe\Exception\InvalidBankAccountException;
-use Omnipay\Common\Helper;
 use Omnipay\Common\ParametersTrait;
-use Symfony\Component\HttpFoundation\ParameterBag;
 
 /**
  * Bank Account class
@@ -147,26 +145,6 @@ class BankAccount
             self::ACCOUNT_HOLDER_TYPE_INDIVIDUAL,
             self::ACCOUNT_HOLDER_TYPE_COMPANY,
         );
-    }
-
-    /**
-     * Initialize the object with parameters.
-     *
-     * If any unknown parameters passed, they will be ignored.
-     *
-     * @see \Omnipay\Common\ParametersTrait::initialize()
-     * @see \Omnipay\Common\CreditCard::initialize()
-     *
-     * @param ?array $parameters An associative array of parameters
-     * @return $this
-     */
-    public function initialize(?array $parameters = null)
-    {
-        $this->parameters = new ParameterBag;
-
-        Helper::initialize($this, $parameters);
-
-        return $this;
     }
 
     /**
