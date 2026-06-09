@@ -9,6 +9,4 @@ use Omnipay\Common\Exception\OmnipayException;
  *
  * Thrown when a bank account is invalid or missing required fields.
  */
-class InvalidBankAccountException extends \Exception implements OmnipayException
-{
-}
+class InvalidBankAccountException extends \Exception implements OmnipayException {}
