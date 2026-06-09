@@ -354,7 +354,7 @@ class BankAccount
      */
     public function getAccountNumberMasked($mask = 'X')
     {
-        $maskLength = strlen($this->getAccountNumber()) - 4;
+        $maskLength = max(strlen($this->getAccountNumber()) - 4, 0);
 
         return str_repeat($mask, $maskLength) . $this->getAccountNumberLastFour();
     }
