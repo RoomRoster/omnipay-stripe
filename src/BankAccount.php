@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Bank Account class
  */
@@ -194,8 +195,9 @@ class BankAccount
             throw new InvalidBankAccountException('The bank account type is not in the supported list');
         }
 
-        if (!empty($this->getAccountHolderType())
-            && !in_array($this->getAccountHolderType(), $this->getSupportedAccountHolderTypes())
+        if (
+            !empty($this->getAccountHolderType())
+            && !in_array($this->getAccountHolderType(), $this->getSupportedAccountHolderTypes(), true)
         ) {
             throw new InvalidBankAccountException('The bank account holder type is not in the supported list');
         }
@@ -208,7 +210,8 @@ class BankAccount
             throw new InvalidBankAccountException('The bank routing number should have 9 digits');
         }
 
-        if (!preg_match(self::ROUTING_NUMBER_REGEX, $this->getRoutingNumber())
+        if (
+            !preg_match(self::ROUTING_NUMBER_REGEX, $this->getRoutingNumber())
             || !$this->validateChecksum($this->getRoutingNumber())
         ) {
             throw new InvalidBankAccountException('The bank routing number is invalid');

@@ -429,9 +429,11 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         if (!empty($accountType)) {
             $data['account_type'] = $accountType;
         }
+
         if (!empty($routingNumber)) {
             $data['routing_number'] = $routingNumber;
         }
+
         if (!empty($accountHolderName)) {
             $data['account_holder_name'] = $accountHolderName;
         }
