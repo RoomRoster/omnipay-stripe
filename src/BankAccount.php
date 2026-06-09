@@ -206,7 +206,7 @@ class BankAccount
     private function validateChecksum($number)
     {
         $split = array_chunk(str_split($number), 3);
-        $function = function ($chars) {
+        $function = static function ($chars) {
             return ($chars[0] * 3)
                 + ($chars[1] * 7)
                 + ($chars[2]);
