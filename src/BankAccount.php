@@ -191,7 +191,7 @@ class BankAccount
             }
         }
 
-        if (!empty($this->getAccountType()) && !in_array($this->getAccountType(), $this->getSupportedAccountTypes())) {
+        if (!empty($this->getAccountType()) && !in_array($this->getAccountType(), $this->getSupportedAccountTypes(), true)) {
             throw new InvalidBankAccountException('The bank account type is not in the supported list');
         }
 
