@@ -107,6 +107,7 @@ class CreateTokenRequest extends AbstractRequest
 
             $bankData = [
                 'country' => $bankAccount->getBillingCountry(),
+                'currency' => $this->getCurrency(),
                 'account_number' => $bankAccount->getAccountNumber(),
             ];
 
