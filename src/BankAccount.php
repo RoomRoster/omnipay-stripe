@@ -1343,11 +1343,7 @@ class BankAccount
      */
     public function setBirthday($value)
     {
-        if ($value) {
-            $value = new DateTime($value, new DateTimeZone('UTC'));
-        } else {
-            $value = null;
-        }
+        $value = $value ? new DateTime($value, new DateTimeZone('UTC')) : null;
 
         return $this->setParameter('birthday', $value);
     }
