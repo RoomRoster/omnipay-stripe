@@ -115,10 +115,6 @@ class CreateTokenRequest extends AbstractRequest
                 $bankData['routing_number'] = $bankAccount->getRoutingNumber();
             }
 
-            if ($bankAccount->getAccountType()) {
-                $bankData['account_type'] = $bankAccount->getAccountType();
-            }
-
             if ($bankAccount->getBillingName()) {
                 $bankData['account_holder_name'] = $bankAccount->getBillingName();
             }
