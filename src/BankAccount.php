@@ -202,7 +202,7 @@ class BankAccount
             throw new InvalidBankAccountException('The bank account holder type is not in the supported list');
         }
 
-        if (is_null($this->getRoutingNumber())) {
+        if ($this->getRoutingNumber() === null) {
             return;
         }
 
