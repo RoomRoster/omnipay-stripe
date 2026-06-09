@@ -218,7 +218,7 @@ class BankAccount
     /**
      * Set Card Title.
      *
-     * @param string $value Parameter value
+     * @param string $value
      * @return $this
      */
     public function setTitle($value)
@@ -252,7 +252,7 @@ class BankAccount
     /**
      * Set Bank First Name (Billing and Shipping).
      *
-     * @param string $value Parameter value
+     * @param string $value
      * @return $this
      */
     public function setFirstName($value)
@@ -276,7 +276,7 @@ class BankAccount
     /**
      * Set Bank Last Name (Billing and Shipping).
      *
-     * @param string $value Parameter value
+     * @param string $value
      * @return $this
      */
     public function setLastName($value)
@@ -300,7 +300,7 @@ class BankAccount
     /**
      * Set Bank Name (Billing and Shipping).
      *
-     * @param string $value Parameter value
+     * @param string $value
      * @return $this
      */
     public function setName($value)
@@ -324,10 +324,10 @@ class BankAccount
     /**
      * Set Bank Account Number
      *
-     * Non-numeric characters are stripped out of the card number, so
+     * Non-numeric characters are stripped out of the account number, so
      * it's safe to pass in strings such as "4444-3333 2222 1111" etc.
      *
-     * @param string $value Parameter value
+     * @param string $value
      * @return $this
      */
     public function setAccountNumber($value)
@@ -339,7 +339,7 @@ class BankAccount
     /**
      * Get the last 4 digits of the Bank Account Number.
      *
-     * @return string
+     * @return ?string
      */
     public function getAccountNumberLastFour()
     {
@@ -372,10 +372,10 @@ class BankAccount
     /**
      * Set Bank Routing Number
      *
-     * Non-numeric characters are stripped out of the card number, so
+     * Non-numeric characters are stripped out of the routing number, so
      * it's safe to pass in strings such as "4444-3333 2222 1111" etc.
      *
-     * @param string $value Parameter value
+     * @param string $value
      * @return $this
      */
     public function setRoutingNumber($value)
@@ -397,7 +397,7 @@ class BankAccount
     /**
      * Set Bank Account Type
      *
-     * @param string $value Parameter value
+     * @param string $value
      * @return $this
      */
     public function setAccountType($value)
@@ -439,7 +439,7 @@ class BankAccount
     /**
      * Set Bank Name
      *
-     * @param string $value Parameter value
+     * @param string $value
      * @return $this
      */
     public function setBankName($value)
@@ -481,8 +481,8 @@ class BankAccount
     /**
      * Split the full name in the first and last name.
      *
-     * @param $fullName
-     * @return array with first and lastname
+     * @param string $fullName
+     * @return array With first and last name
      */
     protected function listFirstLastName($fullName)
     {
@@ -1325,7 +1325,8 @@ class BankAccount
     /**
      * Get the account holder's birthday.
      *
-     * @return string
+     * @param string $format
+     * @return ?string
      */
     public function getBirthday($format = 'Y-m-d')
     {
