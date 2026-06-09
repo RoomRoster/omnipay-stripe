@@ -141,10 +141,10 @@ class BankAccount
      */
     public function getSupportedAccountHolderTypes()
     {
-        return array(
+        return [
             self::ACCOUNT_HOLDER_TYPE_INDIVIDUAL,
             self::ACCOUNT_HOLDER_TYPE_COMPANY,
-        );
+        ];
     }
 
     /**
